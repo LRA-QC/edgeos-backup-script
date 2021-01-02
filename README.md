@@ -14,3 +14,4 @@ You will want to make sure that you configure the user, the list of devices and 
 
 # RESULTS
 The configuration will be backed up to a zip file in the path of your choice. After 365 days, the backups will be purged. Backup files are very small.
+In the zip file you will find a configuration file for each device : config.boot-<ip_or_name_of_device>
