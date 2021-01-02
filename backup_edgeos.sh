@@ -10,6 +10,8 @@ EDGEUSER=ubnt
 EDGEOS=('192.168.2.1' '192.168.2.10')
 # DESTINATION
 PT=/mnt/raid_data/partage/backup/edgeos
+# RETENTION
+DAYS=365
 
 DT=$(date -u +"%Y%m%d")
 echo "- Fetching config"
@@ -23,5 +25,5 @@ echo "- flushing temp files"
 SIZE=$(ls -sh ${PT}/backup-router-${DT}.zip|awk '{print $1}')
 echo "- Backup validation: size [${SIZE}]"
 unzip -l ${PT}/backup-router-${DT}.zip
-echo "- Keeping only the last 365 days of backups"
-/usr/bin/find /mnt/raid_data/partage/backup/edgeos/ -mtime +365 -delete
+echo "- Keeping only the last ${DAYS} days of backups"
+/usr/bin/find /mnt/raid_data/partage/backup/edgeos/ -mtime +${DAYS} -delete
